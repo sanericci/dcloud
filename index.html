@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dcloud — 熊野の森から、静けさを音にする。</title>
+<meta name="description" content="Dcloud — 映像・空間・ブランドのための音楽制作。LUMIKO IMAI と sanericci によるインストゥルメンタル・デュオ。三重県熊野市を拠点に、旅館・神社・寺子屋・田畑のための音楽をつくっています。">
+<meta property="og:title" content="Dcloud">
+<meta property="og:description" content="熊野の森から、静けさを音にする。LUMIKO IMAI × sanericci によるインストゥルメンタル・デュオ。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23131c17'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23c9a349' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Zen+Old+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   写真の差し替えはこの4行だけ。images/ フォルダに置いて、ファイル名を合わせる。
+   写真がまだ無い間は、下のグラデーションが代わりに表示される（崩れない）。
+   ========================================================================= */
+:root{
+  --photo-hero: url('images/hero.jpg');            /* トップ全面：山並みの眺望 */
+  --photo-about: url('images/about.jpg');          /* About：苔の参道（縦） */
+  --photo-band-music: url('images/band-music.jpg');/* 帯：稲田と朝日 */
+  --photo-band-work: url('images/band-work.jpg');  /* 帯：霧の山と桜 */
+  --photo-order: url('images/order.jpg');          /* ご依頼：川と森 */
+  --photo-youtube: url('images/youtube.jpg');      /* YouTube：月夜 */
+}
+
+:root{
+  --forest:#131c17;
+  --forest-2:#1b2720;
+  --moss:#2f4437;
+  --rock:#8d8d83;
+  --sky:#6f95ab;
+  --gold:#c9a349;
+  --paper:#ece8df;
+  --paper-dim:#b8b3a8;
+  --maxw:1080px;
+  --serif:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --display:'Cormorant Garamond','Zen Old Mincho',serif;
+  --sans:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--forest);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.9;
+  letter-spacing:.04em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+section{padding-block:clamp(72px,11vw,132px)}
+.label{
+  font-family:var(--display);
+  font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 8px;
+}
+h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(22px,3.4vw,30px);letter-spacing:.12em;
+  margin:0 0 32px;
+}
+p{margin:0 0 1.3em;max-width:62ch}
+.h2-sub{
+  font-family:var(--sans);font-weight:300;
+  font-size:14px;letter-spacing:.14em;color:var(--paper-dim);
+  display:inline-block;margin-top:12px;
+}
+.muted{color:var(--paper-dim)}
+.small{font-size:13.5px;line-height:1.85}
+
+/* ---------- トップ ---------- */
+.hero{
+  position:relative;min-height:92svh;
+  display:flex;align-items:center;
+  padding-block:120px 96px;
+  background-image:var(--photo-hero),
+    radial-gradient(120% 80% at 70% 10%, #2b4055 0%, rgba(43,64,85,0) 60%),
+    linear-gradient(180deg,#20323f 0%,#1a2820 55%,#131c17 100%);
+  background-size:cover;background-position:center;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,rgba(11,17,14,.72) 0%,rgba(11,17,14,.42) 46%,rgba(11,17,14,.12) 100%),
+    linear-gradient(180deg,rgba(11,17,14,.55) 0%,rgba(11,17,14,.3) 45%,rgba(19,28,23,.94) 100%);
+}
+.hero .wrap *{text-shadow:0 2px 22px rgba(8,13,10,.75)}
+.hero .wrap{position:relative;z-index:1}
+.wordmark{
+  font-family:var(--display);font-weight:300;
+  font-size:clamp(52px,13vw,124px);
+  letter-spacing:.22em;text-indent:.22em;
+  line-height:1;margin:0 0 28px;
+}
+.hero-lead{
+  font-family:var(--serif);
+  font-size:clamp(17px,2.7vw,25px);
+  letter-spacing:.18em;line-height:2;margin:0 0 22px;
+}
+.hero-sub{font-size:13px;letter-spacing:.24em;color:var(--paper-dim);margin:0;max-width:none;line-height:2.1}
+.scroll{
+  position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+  z-index:1;font-size:10px;letter-spacing:.34em;color:var(--paper-dim);
+  font-family:var(--display);text-transform:uppercase;
+}
+
+/* ---------- About ---------- */
+.about{background:var(--forest)}
+.about-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:clamp(32px,6vw,72px);align-items:center}
+.about-photo{
+  aspect-ratio:4/5;border-radius:2px;
+  background-image:var(--photo-about),
+    linear-gradient(200deg,#3f5a3f 0%,#7b7a50 45%,#c9a349 100%);
+  background-size:cover;background-position:center;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+.members{margin:28px 0 0;padding:0;list-style:none;font-size:14.5px}
+.members li{padding:10px 0;border-top:1px solid rgba(236,232,223,.14)}
+.members b{font-weight:500;letter-spacing:.1em}
+.members span{color:var(--paper-dim);display:block;font-size:13px}
+.members a{
+  text-decoration:none;display:block;
+  padding-right:22px;position:relative;transition:color .2s;
+}
+.members a::after{
+  content:"→";position:absolute;right:2px;top:2px;
+  color:var(--gold);opacity:.55;font-size:12px;transition:opacity .2s,transform .2s;
+}
+.members a:hover{color:var(--gold)}
+.members a:hover::after{opacity:1;transform:translateX(3px)}
+
+/* ---------- Music ---------- */
+.music{background:var(--forest-2)}
+.releases{margin:0;padding:0;list-style:none;border-top:1px solid rgba(236,232,223,.14)}
+.releases li{
+  display:grid;grid-template-columns:1fr auto;gap:10px 24px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid rgba(236,232,223,.14);
+}
+.rel-title{font-family:var(--serif);font-size:17px;letter-spacing:.08em}
+.rel-meta{color:var(--paper-dim);font-size:13px;letter-spacing:.08em}
+.listen{
+  font-family:var(--display);font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;white-space:nowrap;
+  border-bottom:1px solid rgba(201,163,73,.4);padding-bottom:2px;
+}
+.listen:hover{color:var(--paper);border-color:var(--paper)}
+.chart{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.chart div{
+  flex:1 1 260px;padding:22px 24px;
+  border:1px solid rgba(201,163,73,.3);border-radius:2px;background:rgba(201,163,73,.05);
+}
+.chart .rank{font-family:var(--display);font-size:40px;line-height:1;color:var(--gold);letter-spacing:.02em}
+.chart .rank small{font-size:15px;letter-spacing:.1em;margin-left:4px}
+.chart p{margin:10px 0 0;font-size:13px;color:var(--paper-dim);line-height:1.8}
+.platforms{margin-top:28px;font-size:13px;color:var(--paper-dim);letter-spacing:.08em}
+
+/* ---------- Work ---------- */
+.work{background:var(--forest)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;background:rgba(236,232,223,.14)}
+.card{background:var(--forest);padding:34px 30px 30px}
+.card h3{font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.1em;margin:0 0 4px}
+.card .place{font-size:12.5px;color:var(--rock);letter-spacing:.1em;margin:0 0 18px}
+.card p{font-size:14px;margin:0 0 20px}
+.card .links{display:flex;flex-direction:column;gap:9px;font-size:13px}
+.card .links a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid rgba(236,232,223,.2);padding-bottom:3px;width:fit-content}
+.card .links a:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ---------- 写真の帯 ---------- */
+.band{
+  height:clamp(190px,32vw,380px);
+  background-size:cover;background-position:center;
+  position:relative;
+}
+.band::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(19,28,23,.9) 0%,rgba(19,28,23,.25) 35%,rgba(19,28,23,.25) 65%,rgba(19,28,23,.9) 100%);
+}
+.band-music{background-image:var(--photo-band-music)}
+.band-work{background-image:var(--photo-band-work)}
+
+/* ---------- 依頼 / YouTube ---------- */
+.order{position:relative;background:#16211b}
+.order::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--photo-order);background-size:cover;background-position:center;
+  opacity:.42;
+}
+.order::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(22,33,27,.9) 0%,rgba(22,33,27,.66) 50%,rgba(22,33,27,.93) 100%);
+}
+.order .wrap{position:relative;z-index:1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:40px}
+.steps div{border-top:1px solid rgba(201,163,73,.35);padding-top:16px}
+.steps b{font-family:var(--display);color:var(--gold);font-size:13px;letter-spacing:.3em;display:block;margin-bottom:8px}
+.steps p{font-size:13.5px;margin:0}
+.order-cta{margin:44px 0 0}
+.order-cta a{
+  font-family:var(--serif);font-size:15px;letter-spacing:.16em;
+  color:var(--gold);text-decoration:none;
+  border:1px solid rgba(201,163,73,.45);border-radius:2px;
+  padding:14px 30px;display:inline-block;transition:background .25s,color .25s;
+}
+.order-cta a:hover{background:rgba(201,163,73,.14);color:var(--paper)}
+
+/* キーボード操作で今どこにいるかが見えるように */
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:1px}
+.tube{
+  position:relative;text-align:center;
+  background-color:#0d1411;
+  background-image:linear-gradient(180deg,rgba(13,20,17,.86) 0%,rgba(13,20,17,.6) 50%,rgba(13,20,17,.95) 100%),var(--photo-youtube);
+  background-size:cover,cover;background-position:center,center;
+}
+.tube .wrap{position:relative;z-index:1}
+.tube .badge{
+  display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,163,73,.4);
+  padding:7px 16px;border-radius:100px;margin-bottom:22px;
+}
+.tube p{margin-inline:auto;text-align:center}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--forest-2);text-align:center}
+.contact .wordmark-s{font-family:var(--display);font-size:34px;letter-spacing:.3em;text-indent:.3em;margin:0 0 18px}
+.contact p{margin-inline:auto;text-align:center}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 34px;margin-top:30px;font-size:14px;letter-spacing:.12em}
+.contact-links a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(201,163,73,.5);padding-bottom:4px}
+.contact-links a:hover{color:var(--gold)}
+footer{padding:34px 0 48px;text-align:center;font-size:11.5px;letter-spacing:.2em;color:var(--rock);background:var(--forest-2)}
+
+@media (max-width:760px){
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{aspect-ratio:3/2;order:-1}
+  .releases li{grid-template-columns:1fr}
+  body{line-height:1.85}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="wordmark">Dcloud</h1>
+    <p class="hero-lead">熊野の森から、<br>静けさを音にする。</p>
+    <p class="hero-sub">Music &amp; Sound Design for Film / Space / Brand<br>LUMIKO IMAI &nbsp;×&nbsp; sanericci &nbsp;—&nbsp; Based in Kumano, Japan</p>
+  </div>
+  <div class="scroll">scroll</div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="label">About</p>
+      <h2>その場所のための、音楽を。</h2>
+      <p>Dcloud（ディークラウド）は、作曲と歌の LUMIKO IMAI、制作とリミックスの sanericci による
+        インストゥルメンタル・デュオです。三重県熊野市のスタジオを拠点に活動しています。</p>
+      <p>土地に流れている空気、水の気配、光の移ろい。そこにしかないものを聴きとって、
+        聴く人の呼吸がゆっくりになる音に置きかえていく。旅館、神社、寺子屋、米の実る谷——
+        これまで音楽をつくってきた場所は、どれも「その場所のため」の一点ものでした。</p>
+      <ul class="members">
+        <li><a href="http://sanericci.com/lumikoimai" target="_blank" rel="noopener"><b>LUMIKO IMAI</b><span>作曲・歌</span></a></li>
+        <li><a href="http://sanericci.com/artist" target="_blank" rel="noopener"><b>sanericci</b><span>制作・リミックス</span></a></li>
+        <li><a href="http://sanericci.com" target="_blank" rel="noopener"><b>Base</b><span>三重県熊野市 / sanericci cafe</span></a></li>
+      </ul>
+    </div>
+    <div class="about-photo" role="img" aria-label="苔むした杉林のなかの参道"></div>
+  </div>
+</section>
+
+<div class="band band-music" role="img" aria-label="朝日に照らされた熊野の稲田と山"></div>
+
+<section class="music" id="music">
+  <div class="wrap">
+    <p class="label">Music</p>
+    <h2>リリース</h2>
+    <ul class="releases">
+      <li>
+        <div>
+          <div class="rel-title">Roka Vol.1 2022 Spring / Summer</div>
+          <div class="rel-meta">アルバム ・ 2022年6月19日 ・ 9曲</div>
+        </div>
+        <a class="listen" href="https://linkco.re/fMEMm0xh?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">Roka Vol.2 2022-2023 Autumn / Winter</div>
+          <div class="rel-meta">アルバム ・ 2023年1月1日 ・ 12曲 / 88分</div>
+        </div>
+        <a class="listen" href="https://linkco.re/qbnPUR6Z?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">nyuwa</div>
+          <div class="rel-meta">シングル ・ 2023年5月23日</div>
+        </div>
+        <a class="listen" href="https://linkco.re/rV8qZsRS?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">saisei</div>
+          <div class="rel-meta">シングル ・ 2024年4月30日</div>
+        </div>
+        <a class="listen" href="https://linkco.re/bNvd4YcC?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">ashram</div>
+          <div class="rel-meta">シングル ・ 2024年10月12日 ・ 8分</div>
+        </div>
+        <a class="listen" href="https://linkco.re/bT0Bb6Yt?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">motoise</div>
+          <div class="rel-meta">シングル ・ 2026年1月4日 ・ 元伊勢内宮皇大神社テーマソング</div>
+        </div>
+        <a class="listen" href="https://linkco.re/fSgVpV9A?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+      <li>
+        <div>
+          <div class="rel-title">seina</div>
+          <div class="rel-meta">シングル ・ 2026年5月16日 ・ 京都 夜久野「清雫」テーマソング</div>
+        </div>
+        <a class="listen" href="https://linkco.re/0DvHttYu?lang=ja" target="_blank" rel="noopener">Listen</a>
+      </li>
+    </ul>
+
+    <div class="chart">
+      <div>
+        <div class="rank">6<small>位</small></div>
+        <p>Roka Vol.1 — iTunes Store インストゥルメンタル トップアルバム（日本）／2022年6月24日</p>
+      </div>
+      <div>
+        <div class="rank">42<small>位</small></div>
+        <p>ashram — iTunes Store インストゥルメンタル トップソング（日本）／2024年10月12日</p>
+      </div>
+    </div>
+
+    <p class="platforms">配信：Apple Music / Spotify / YouTube Music / Amazon Music / LINE MUSIC ほか</p>
+  </div>
+</section>
+
+<div class="band band-work" role="img" aria-label="霧に包まれた山あいの棚田と桜"></div>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <p class="label">Work</p>
+    <h2>楽曲提供実績</h2>
+  </div>
+  <div class="wrap">
+    <div class="cards">
+      <article class="card">
+        <h3>直島旅館 ろ霞</h3>
+        <p class="place">香川県 直島町</p>
+        <p>瀬戸内海・直島の旅館「ろ霞」のためのコンセプトアルバム2作。館内に加え、レストラン EN とカフェバー moya の空間のための楽曲を制作しました。</p>
+        <div class="links">
+          <a href="https://roka.voyage" target="_blank" rel="noopener">roka.voyage</a>
+          <a href="https://linkco.re/fMEMm0xh?lang=ja" target="_blank" rel="noopener">Roka Vol.1 を聴く</a>
+          <a href="https://linkco.re/qbnPUR6Z?lang=ja" target="_blank" rel="noopener">Roka Vol.2 を聴く</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>元伊勢内宮 皇大神社</h3>
+        <p class="place">京都府 福知山市大江町</p>
+        <p>深い自然に包まれた境内の、神聖な空気と目に見えないバイブレーションを音にしたテーマソング「motoise」。LUMIKO IMAI が作詞・歌唱しています。</p>
+        <div class="links">
+          <a href="https://www.motoisenaiku.com" target="_blank" rel="noopener">motoisenaiku.com</a>
+          <a href="https://linkco.re/fSgVpV9A?lang=ja" target="_blank" rel="noopener">motoise を聴く</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>夜久野 清雫</h3>
+        <p class="place">京都府 福知山市夜久野町</p>
+        <p>山あいの清い湧き水で育つブランド米「清雫（せいな）」のテーマソング「seina」。水が生まれ、流れていく情景を一音ずつたどるように構成しました。</p>
+        <div class="links">
+          <a href="https://www.kyoto-yakuno.com" target="_blank" rel="noopener">kyoto-yakuno.com</a>
+          <a href="https://linkco.re/0DvHttYu?lang=ja" target="_blank" rel="noopener">seina を聴く</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <p class="label">Order</p>
+    <h2>音楽制作のご依頼<br><span class="h2-sub">映像・空間・ブランドのために</span></h2>
+    <p>宿、店舗、神社やお寺、学びの場、田畑の営み、映像作品。その場所のためだけの音楽を、一から制作します。
+      既存曲の貸し出しではなく、空間と時間の流れに合わせてつくるオリジナルです。
+      短いループ1曲から、館内で一日流し続けるための長尺まで対応します。</p>
+    <div class="steps">
+      <div><b>01</b><p>場所やご用途、流れる時間帯を伺います。写真や映像があれば拝見します。</p></div>
+      <div><b>02</b><p>方向性を決めて、短いデモをお送りします。ここで質感をすり合わせます。</p></div>
+      <div><b>03</b><p>本制作。長さ・尺・ループの有無などをご相談のうえ仕上げます。</p></div>
+      <div><b>04</b><p>納品。ご利用範囲についても、あらかじめ書面でお決めします。</p></div>
+    </div>
+    <p class="order-cta"><a href="#contact">ご相談はこちらから</a></p>
+  </div>
+</section>
+
+<section class="tube" id="youtube">
+  <div class="wrap">
+    <span class="badge">Coming soon</span>
+    <h2>作業用・睡眠用BGMチャンネル</h2>
+    <p>熊野の風景とともに、長く流しておける音を届けるYouTubeチャンネルを準備しています。
+      公開まで、もうしばらくお待ちください。</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="wordmark-s">Dcloud</p>
+    <p>ご依頼・ご相談は、こちらからお気軽にどうぞ。</p>
+    <div class="contact-links">
+      <a href="http://sanericci.com/contact" target="_blank" rel="noopener">お問い合わせフォーム</a>
+      <a href="https://instagram.com/dcloud369" target="_blank" rel="noopener">Instagram @dcloud369</a>
+      <!-- 独自ドメインのメールを用意したら、この下の行のコメントを外して住所を入れる
+      <a href="mailto:ここにメールアドレス">Email</a>
+      -->
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Dcloud / sanericci cafe</footer>
+
+</body>
+</html>
