@@ -11,6 +11,7 @@
 <meta property="og:image" content="https://sanericci.github.io/dcloud/images/hero.jpg">
 <meta property="og:url" content="https://sanericci.github.io/dcloud/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://sanericci.github.io/dcloud/">
 <link rel="alternate" hreflang="ja" href="https://sanericci.github.io/dcloud/">
 <link rel="alternate" hreflang="en" href="https://sanericci.github.io/dcloud/en/">
 <link rel="alternate" hreflang="fr" href="https://sanericci.github.io/dcloud/fr/">
@@ -244,6 +245,8 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:1
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 34px;margin-top:30px;font-size:14px;letter-spacing:.12em}
 .contact-links a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(201,163,73,.5);padding-bottom:4px}
 .contact-links a:hover{color:var(--gold)}
+footer a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid rgba(201,163,73,.4);padding-bottom:2px}
+footer a:hover{color:var(--gold);border-color:var(--gold)}
 footer{padding:34px 0 48px;text-align:center;font-size:11.5px;letter-spacing:.2em;color:var(--rock);background:var(--forest-2)}
 
 @media (max-width:760px){
@@ -262,12 +265,46 @@ footer{padding:34px 0 48px;text-align:center;font-size:11.5px;letter-spacing:.2e
 .langbar a:hover{color:var(--paper)}
 .langbar a.on{color:var(--gold);border-color:rgba(201,163,73,.5)}
 @media (max-width:600px){.langbar{top:18px;right:16px;gap:11px;font-size:11px;letter-spacing:.12em}}
+
+/* ---------- 印刷・PDF（営業先が紙で回覧する場合） ---------- */
+@media print{
+  :root{
+    --forest:#fff; --forest-2:#fff; --moss:#555;
+    --rock:#666; --gold:#8a6d1f; --paper:#111; --paper-dim:#444;
+  }
+  .hero{min-height:0;background-image:none!important;padding-block:0 18px}
+  .hero::after{display:none}
+  .hero .wrap *{text-shadow:none!important}
+  .wordmark{font-size:52px;margin-bottom:14px}
+  .band,.about-photo,.scroll,.langbar{display:none!important}
+  .order::before,.order::after{display:none!important}
+  .about,.music,.work,.order,.tube,.contact,footer{
+    background:#fff!important;background-image:none!important;background-color:#fff!important;
+  }
+  section{padding-block:20px;break-inside:avoid}
+  .card{border:1px solid #ddd}
+  .chart div{border-color:#ccc;background:none}
+  .card .links a,.listen,.contact-links a,.order-cta a{border-bottom:none}
+  .card .links a::after,.contact-links a::after,.listen::after,.members a::after{
+    content:" (" attr(href) ")";font-size:10px;color:#666;letter-spacing:0;
+    text-transform:none;
+  }
+  .members a::after{display:block;position:static;transform:none;opacity:1}
+  footer{background:none}
+}
+
+/* ---------- スマホでの押しやすさ ---------- */
+@media (max-width:600px){
+  .listen{display:inline-block;padding:11px 0}
+  .card .links a{padding:9px 0}
+  .contact-links{gap:20px 30px}
+}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <nav class="langbar"><a href="" class="on">日本語</a><a href="en/">EN</a><a href="fr/">FR</a><a href="es/">ES</a><a href="pt/">PT</a></nav>
+  <nav class="langbar"><a href="./" lang="ja" hreflang="ja" class="on">日本語</a><a href="en/" lang="en" hreflang="en">EN</a><a href="fr/" lang="fr" hreflang="fr">FR</a><a href="es/" lang="es" hreflang="es">ES</a><a href="pt/" lang="pt" hreflang="pt">PT</a></nav>
   <div class="wrap">
     <h1 class="wordmark">Dcloud</h1>
     <p class="hero-lead">熊野の森から、<br>静けさを音にする。</p>
@@ -441,16 +478,14 @@ footer{padding:34px 0 48px;text-align:center;font-size:11.5px;letter-spacing:.2e
     <p class="wordmark-s">Dcloud</p>
     <p>ご依頼・ご相談は、こちらからお気軽にどうぞ。</p>
     <div class="contact-links">
-      <a href="http://sanericci.com/contact" target="_blank" rel="noopener">お問い合わせフォーム</a>
+      <a href="mailto:info@sanericci.com?subject=%E9%9F%B3%E6%A5%BD%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88Dcloud%EF%BC%89&amp;body=Dcloud%20%E6%A7%98%0A%0A%E3%83%BB%E4%BD%BF%E3%81%86%E5%A0%B4%E6%89%80%EF%BC%8F%E7%94%A8%E9%80%94%EF%BC%9A%0A%E3%83%BB%E5%B8%8C%E6%9C%9B%E3%81%99%E3%82%8B%E5%B0%BA%E3%82%84%E6%9C%AC%E6%95%B0%EF%BC%9A%0A%E3%83%BB%E5%B8%8C%E6%9C%9B%E3%81%AE%E6%99%82%E6%9C%9F%EF%BC%9A%0A%E3%83%BB%E3%81%94%E4%BA%88%E7%AE%97%E3%81%AE%E7%9B%AE%E5%AE%89%EF%BC%9A%0A%0A%EF%BC%88%E5%B7%AE%E3%81%97%E6%94%AF%E3%81%88%E3%81%AA%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E5%86%99%E7%9C%9F%E3%82%84%E6%98%A0%E5%83%8F%E3%82%82%E3%81%8A%E9%80%81%E3%82%8A%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0A">info@sanericci.com</a>
       <a href="https://instagram.com/dcloud369" target="_blank" rel="noopener">Instagram @dcloud369</a>
     </div>
-    <!-- 独自ドメインのメールを用意したら、上の contact-links に1行足す
-      <a href="mailto:ここにメールアドレス">Email</a>
-    -->
+    <!-- 専用の問い合わせフォーム（Googleフォーム等）ができたら、1本目をそのURLに差し替える -->
   </div>
 </section>
 
-<footer>© 2026 Dcloud / sanericci cafe</footer>
+<footer>© 2026 Dcloud / <a href="http://sanericci.com" target="_blank" rel="noopener">sanericci cafe</a></footer>
 
 </body>
 </html>

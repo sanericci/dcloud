@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sanericci.github.io/dcloud/sitemap.xml
